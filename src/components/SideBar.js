@@ -2,7 +2,7 @@ import { Drawer, styled } from "@mui/material";
 import SideContent from "./SideContent";
 
 const StyledDrawer = styled(Drawer)`
-  margin-top: 54px;
+  margin-top: 0px;
 `;
 
 const SideBar = ({ openDrawer }) => {
