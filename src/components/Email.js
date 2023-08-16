@@ -63,11 +63,26 @@ const Email = ({
   };
 
   return (
-    <Wapper style={{ width: "calc(100%-250px)" }}>
+    <Wapper
+      style={{
+        width: "calc(100%-250px)",
+      }}
+      sx={{
+        "&:hover": {
+          transform: "scale(1.01)",
+          boxShadow: "5px 5px 10px 5px #bdbdbd",
+        },
+      }}
+    >
       <Checkbox
         size="small"
         checked={selectedEmails.includes(email._id)}
         onChange={() => onValueChange()}
+        sx={{
+          "&:hover": {
+            background: "#e0e0e0",
+          },
+        }}
       />
       {email.starred ? (
         <Star

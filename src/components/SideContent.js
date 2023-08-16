@@ -21,6 +21,9 @@ const ComposeButton = styled(Button)({
   textTransform: "none",
   marginTop: 10,
   marginLeft: 10,
+  "&:hover": {
+    transform: "Scale(1.05)",
+  },
 });
 
 const Container = styled(Box)({

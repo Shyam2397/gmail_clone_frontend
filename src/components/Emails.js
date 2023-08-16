@@ -41,6 +41,7 @@ const Emails = () => {
       setRefreshScreen((prevState) => !prevState);
     } else {
       moveEmailsToBinService.call(selectedEmails);
+      setRefreshScreen((prevState) => !prevState);
     }
   };
 
@@ -49,7 +50,7 @@ const Emails = () => {
       style={
         openDrawer
           ? { marginLeft: 250, width: "calc(100%-250px)" }
-          : { width: "100%" }
+          : { width: "auto" }
       }
     >
       <Box
@@ -59,8 +60,29 @@ const Emails = () => {
           alignItems: "center",
         }}
       >
-        <Checkbox size="small" onChange={(e) => selectedAllEmails(e)} />
-        <DeleteOutline size="small" onClick={(e) => deleteSelectedEmails(e)} />
+        <Checkbox
+          size="small"
+          onChange={(e) => selectedAllEmails(e)}
+          sx={{
+            "&:hover": {
+              background: "#e0e0e0",
+            },
+          }}
+        />
+        <DeleteOutline
+          color="action"
+          onClick={(e) => deleteSelectedEmails(e)}
+          sx={{
+            fontSize: 22,
+            cursor: "pointer",
+            padding: 0.7,
+            "&:hover": {
+              background: "#e0e0e0",
+              borderRadius: 20,
+              transform: "scale(1.1)",
+            },
+          }}
+        />
       </Box>
       <List>
         {getEmailService?.response?.map((email) => (

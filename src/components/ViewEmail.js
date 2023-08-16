@@ -8,7 +8,7 @@ import { API_URLS } from "../services/api-url";
 
 const Subject = styled(Typography)({
   fontSize: 22,
-  margin: "10px 0 20px 75px",
+  margin: "0 0 20px 65px",
   display: "flex",
 });
 
@@ -38,7 +38,7 @@ const Image = styled("img")({
   width: 40,
   height: 40,
   margin: "5px 10px 0 10px",
-  background: "#cccccc",
+  background: "black",
 });
 
 const Date = styled(Box)({
@@ -65,23 +65,41 @@ const ViewEmail = () => {
       style={
         openDrawer
           ? { marginLeft: 250, width: "calc(100%-250px)" }
-          : { width: "100%" }
+          : { width: "auto" }
       }
     >
-      <Box style={{ padding: "10px 10px" }}>
+      <Box style={{ padding: 15 }}>
         <ArrowBack
           onClick={() => window.history.back()}
           color="action"
           fontSize="small"
+          sx={{
+            cursor: "pointer",
+            padding: 1,
+            "&:hover": {
+              background: "#e0e0e0",
+              borderRadius: 20,
+              transform: "scale(1.1)",
+            },
+          }}
         />
         <DeleteOutline
           fontSize="small"
           color="action"
-          style={{ marginLeft: 40 }}
+          style={{ marginLeft: 10 }}
           onClick={() => deleteEmail()}
+          sx={{
+            cursor: "pointer",
+            padding: 1,
+            "&:hover": {
+              background: "#e0e0e0",
+              borderRadius: 20,
+              transform: "scale(1.1)",
+            },
+          }}
         />
       </Box>
-      <Box style={{ padding: "30px 10px" }}>
+      <Box style={{ padding: "10px 10px" }}>
         <Subject>
           {email.subject} <Indicator component="span">Inbox</Indicator>
         </Subject>

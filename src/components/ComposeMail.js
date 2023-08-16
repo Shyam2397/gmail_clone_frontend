@@ -133,9 +133,16 @@ const ComposeMail = ({ openDialog, setOpenDialog }) => {
   return (
     <Dialog open={openDialog} PaperProps={{ sx: dialogStyle }}>
       <Header>
-        <Typography>New Message</Typography>
+        <Typography sx={{ width: "100%" }}>New Message</Typography>
         <Close
-          sx={{ "&:hover": { background: "#e0e0e0", borderRadius: 20 } }}
+          sx={{
+            "&:hover": {
+              padding: "3px",
+              background: "#e0e0e0",
+              borderRadius: 20,
+              transform: "scale(1.01)",
+            },
+          }}
           onClick={(e) => closeComposemail(e)}
         />
       </Header>
@@ -161,8 +168,29 @@ const ComposeMail = ({ openDialog, setOpenDialog }) => {
         onChange={(e) => onValueChange(e)}
       />
       <Footer>
-        <SendButton onClick={(e) => sendMail(e)}>Send</SendButton>
-        <DeleteOutline onClick={() => setOpenDialog(false)} />
+        <SendButton
+          onClick={(e) => sendMail(e)}
+          sx={{
+            cursor: "pointer",
+            "&:hover": {
+              transform: "scale(1.1)",
+            },
+          }}
+        >
+          Send
+        </SendButton>
+        <DeleteOutline
+          onClick={() => setOpenDialog(false)}
+          sx={{
+            cursor: "pointer",
+            padding: 1,
+            "&:hover": {
+              background: "#e0e0e0",
+              borderRadius: 20,
+              transform: "scale(1.1)",
+            },
+          }}
+        />
       </Footer>
     </Dialog>
   );

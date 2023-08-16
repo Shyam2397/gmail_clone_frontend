@@ -45,22 +45,100 @@ const Header = ({ toggleDrawer }) => {
   return (
     <StyledAppBar position="static">
       <Toolbar>
-        <Menu color="action" onClick={toggleDrawer} />
+        <Menu
+          color="action"
+          onClick={toggleDrawer}
+          sx={{
+            cursor: "pointer",
+            padding: 1,
+            "&:hover": {
+              background: "#e0e0e0",
+              borderRadius: 20,
+              transform: "scale(1.1)",
+            },
+          }}
+        />
         <img
           src={gmailLogo}
           alt="logo"
           style={{ width: 110, marginLeft: 15 }}
         />
         <SearchWrapper>
-          <Search color="action" />
+          <Search
+            color="action"
+            sx={{
+              cursor: "pointer",
+              padding: 1,
+              "&:hover": {
+                background: "#e0e0e0",
+                borderRadius: 20,
+                transform: "scale(1.1)",
+              },
+            }}
+          />
           <InputBase placeholder="Search mail" />
-          <Tune color="action" />
+          <Tune
+            color="action"
+            sx={{
+              cursor: "pointer",
+              padding: 1,
+              "&:hover": {
+                background: "#e0e0e0",
+                borderRadius: 20,
+                transform: "scale(1.1)",
+              },
+            }}
+          />
         </SearchWrapper>
         <OptionWrapper>
-          <HelpOutline color="action" />
-          <SettingsOutlined color="action" />
-          <AppsOutlined color="action" />
-          <AccountCircleOutlined color="action" />
+          <HelpOutline
+            color="action"
+            sx={{
+              cursor: "pointer",
+              padding: 1,
+              "&:hover": {
+                background: "#e0e0e0",
+                borderRadius: 20,
+                transform: "scale(1.1)",
+              },
+            }}
+          />
+          <SettingsOutlined
+            color="action"
+            sx={{
+              cursor: "pointer",
+              padding: 1,
+              "&:hover": {
+                background: "#e0e0e0",
+                borderRadius: 20,
+                transform: "scale(1.1)",
+              },
+            }}
+          />
+          <AppsOutlined
+            color="action"
+            sx={{
+              cursor: "pointer",
+              padding: 1,
+              "&:hover": {
+                background: "#e0e0e0",
+                borderRadius: 20,
+                transform: "scale(1.1)",
+              },
+            }}
+          />
+          <AccountCircleOutlined
+            color="action"
+            sx={{
+              cursor: "pointer",
+              padding: 1,
+              "&:hover": {
+                background: "#e0e0e0",
+                borderRadius: 20,
+                transform: "scale(1.1)",
+              },
+            }}
+          />
         </OptionWrapper>
       </Toolbar>
     </StyledAppBar>
