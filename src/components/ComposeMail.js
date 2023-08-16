@@ -65,9 +65,29 @@ const ComposeMail = ({ openDialog, setOpenDialog }) => {
 
   const sentEmailService = useApi(API_URLS.saveSentEmail);
 
+  const saveDraftService = useApi(API_URLS.saveDraftEmails);
+
   const closeComposemail = (e) => {
     e.preventDefault();
-    setOpenDialog(false);
+
+    const payload = {
+      to: data.to,
+      from: "codingpractice814@gmail.com",
+      subject: data.subject,
+      body: data.body,
+      date: new Date(),
+      image: "",
+      name: "coding practice",
+      starred: false,
+      type: "drafts",
+    };
+    saveDraftService.call(payload);
+
+    if (!saveDraftService.error) {
+      setOpenDialog(false);
+      setData({});
+    } else {
+    }
   };
 
   const sendMail = (e) => {
