@@ -9,6 +9,8 @@ import { BiSolidInbox, BiTrash } from "react-icons/bi";
 import { AiOutlineSend } from "react-icons/ai";
 import ComposeMail from "./ComposeMail";
 import { useState } from "react";
+import { NavLink, useParams } from "react-router-dom";
+import routes from "../routes/route";
 
 const ComposeButton = styled(Button)({
   background: "#c2e7ff",
@@ -27,14 +29,20 @@ const Container = styled(Box)({
     fontSize: 14,
     fontWeight: 500,
     cursor: "pointer",
+    "&>a": {
+      textDecoration: "none",
+      color: "inherit",
+    },
   },
-  "&>ul>li>svg": {
+  "&>ul>a>li>svg": {
     marginRight: 20,
   },
 });
 
 const SideContent = () => {
   const [openDialog, setOpenDialog] = useState(false);
+
+  const { type } = useParams();
 
   const onComposeClick = () => {
     setOpenDialog(true);
@@ -44,37 +52,37 @@ const SideContent = () => {
     {
       id: 1,
       name: "inbox",
-      title: "inbox",
+      title: "Inbox",
       icon: <BiSolidInbox />,
     },
     {
       id: 2,
       name: "starred",
-      title: "starred",
+      title: "Starred",
       icon: <HiOutlineStar />,
     },
     {
       id: 3,
       name: "sent",
-      title: "sent",
+      title: "Sent",
       icon: <AiOutlineSend />,
     },
     {
       id: 4,
       name: "drafts",
-      title: "drafts",
+      title: "Drafts",
       icon: <HiOutlineDocument />,
     },
     {
       id: 5,
-      name: "trash",
-      title: "trash",
+      name: "bin",
+      title: "Trash",
       icon: <BiTrash />,
     },
     {
       id: 6,
-      name: "all mail",
-      title: "all mail",
+      name: "allmail",
+      title: "All Mail",
       icon: <HiOutlineMail />,
     },
   ];
@@ -87,10 +95,21 @@ const SideContent = () => {
 
       <List>
         {sidebarData.map(({ id, name, title, icon }) => (
-          <ListItem>
-            {icon}
-            {title}
-          </ListItem>
+          <NavLink key={name} to={`${routes.emails.path}/${name}`}>
+            <ListItem
+              style={
+                type === name.toLowerCase()
+                  ? {
+                      backgroundColor: "#bbdefb",
+                      borderRadius: "0 16px 16px 0 ",
+                    }
+                  : {}
+              }
+            >
+              {icon}
+              {title}
+            </ListItem>
+          </NavLink>
         ))}
       </List>
       <ComposeMail openDialog={openDialog} setOpenDialog={setOpenDialog} />
